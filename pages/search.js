@@ -16,7 +16,7 @@ const Search = () => {
       console.log('making a call')
     setIsLoading(true);
     axios
-      .get(`http://localhost:3001/dictionaries/search`, { params: { input: input } })
+      .get(`https://peaceful-headland-63045.herokuapp.com/dictionaries/search`, { params: { input: input } })
       .then((result) => {
         console.log(result.data)
         setResult(result.data);
