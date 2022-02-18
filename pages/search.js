@@ -13,7 +13,6 @@ const Search = () => {
   
 
   const onSearchText = useCallback((input) => {
-      console.log('making a call')
     setIsLoading(true);
     axios
       .get(`https://peaceful-headland-63045.herokuapp.com/dictionaries/search`, { params: { input: input } })
@@ -43,6 +42,7 @@ const Search = () => {
 
   const onSelect = async (selection, e) => {
     await e
+    console.log(selection)
     setSelected(selection);
     setInput(selection)
   }
