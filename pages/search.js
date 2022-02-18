@@ -1,8 +1,6 @@
 import React, { useState, useEffect, useRef, useCallback, useMemo } from 'react';
 import axios from 'axios';
 import debounce from 'lodash.debounce';
-// import { Form } from 'react-bootstrap';
-// import SelectSearch from 'react-select-search';
 
 const Search = () => {
   const [input, setInput] = useState('');
