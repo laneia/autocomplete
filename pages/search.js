@@ -58,7 +58,7 @@ const Search = () => {
 
   useEffect(() => {
     // initialize debounce function to search once user has stopped typing every half second
-    inputRef.current = debounce(onSearchText, 500);
+    inputRef.current = debounce(onSearchText, 200);
   }, []);
 
   
