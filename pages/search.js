@@ -6,33 +6,22 @@ const Search = () => {
   const [input, setInput] = useState('');
   const [result, setResult] = useState([]);
   const [selected, setSelected] = useState('');
-  const [errorMsg, setErrorMsg] = useState('');
-  const [isLoading, setIsLoading] = useState(false);
   const inputRef = useRef();
 
-  
-
   const onSearchText = useCallback((input) => {
-    setIsLoading(true);
+    // .then .catch older way of doing async operations on
+    // more modern is to use async keyword on function declaration and await right before the api call
     axios
       .get(`https://peaceful-headland-63045.herokuapp.com/dictionaries/search`, { params: { input: input } })
       .then((result) => {
         console.log(result.data)
         setResult(result.data);
-        setErrorMsg('');
-        setIsLoading(false);
         setSelected("");
       })
       .catch((error) => {
         console.log(error)
-        setErrorMsg('Something went wrong. Try again later.');
-        setIsLoading(false);
       });
   }, []);
-
-  const debouncedSearch = useMemo(() => {
-    return debounce(onSearchText, 1000)
-  }, [onSearchText])
 
   const handleInputChange = (event) => {
     const input = event.target.value;
